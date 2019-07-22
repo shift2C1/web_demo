@@ -1,5 +1,6 @@
 package com.eg.test.controller;
 
+import com.eg.test.anotation.LogMudule;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = "/testservlet")
 @Component
 @Slf4j
+@LogMudule(name = "test")
 public class TestServlet  implements Servlet {
     public void init(ServletConfig servletConfig) throws ServletException {
         /**
