@@ -15,7 +15,7 @@ import java.io.IOException;
 public class TestServlet  implements Servlet {
     public void init(ServletConfig servletConfig) throws ServletException {
         /**
-         *
+         *请求进来的时候初始化
          *
          * */
         log.info("初始化servlet ....");
@@ -27,6 +27,8 @@ public class TestServlet  implements Servlet {
 
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
         log.info("执行servlet...");
+        servletResponse.setCharacterEncoding("UTF-8");
+        servletResponse.getWriter().write("这是一个通过ioc注册的servlet");
     }
 
     public String getServletInfo() {
@@ -34,6 +36,11 @@ public class TestServlet  implements Servlet {
     }
 
     public void destroy() {
+
+        /**
+         * 请求执行完
+         * 应用关闭时候销毁
+         * */
         log.info("销毁servlet....");
     }
 }

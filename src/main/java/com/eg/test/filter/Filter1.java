@@ -10,6 +10,10 @@ import java.io.IOException;
 @Slf4j
 public class Filter1 implements Filter {
     public void init(FilterConfig filterConfig) throws ServletException {
+        /**
+         * 应用启动时候初始化
+         *
+         * */
         log.info("过滤器1 初始化");
     }
 
@@ -19,6 +23,11 @@ public class Filter1 implements Filter {
     }
 
     public void destroy() {
+
+        /**
+         * 应用关闭时候销毁
+         *
+         * */
         log.info("过滤器1销毁了");
     }
 }

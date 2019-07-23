@@ -46,6 +46,7 @@ public class FilterConfig {
     public FilterRegistrationBean filterRegistrationBean(){
         FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean();
         filterRegistrationBean.setFilter(this.ReturnFilter1());
+        filterRegistrationBean.setName("filter1");
         filterRegistrationBean.setOrder(Integer.MAX_VALUE-1);
         return filterRegistrationBean;
     }
@@ -53,6 +54,7 @@ public class FilterConfig {
     public FilterRegistrationBean filterRegistrationBean2(){
         FilterRegistrationBean filterRegistrationBean=new FilterRegistrationBean();
         filterRegistrationBean.setFilter(this.ReturnFilter2());
+        filterRegistrationBean.setName("filter2");
         filterRegistrationBean.setOrder(Integer.MAX_VALUE-2);
         return filterRegistrationBean;
     }
@@ -71,7 +73,12 @@ public class FilterConfig {
         ServletRegistrationBean servletRegistrationBean =new ServletRegistrationBean();
 
         servletRegistrationBean.setServlet(iocServlet());
-//        servletRegistrationBean.addUrlMappings("/testservlet");
+        /**
+         * 必须设置，不然所有的请求都只会进入到该servlet
+         *
+         * */
+        servletRegistrationBean.setName("iocServlet");
+        servletRegistrationBean.addUrlMappings("/testservlet");
         return servletRegistrationBean;
     }
 
